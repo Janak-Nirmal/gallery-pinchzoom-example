@@ -51,8 +51,18 @@
     ImageContext *imageContext = [self.images objectAtIndex:indexPath.row];
     
     cell.imageContext = imageContext;
+    [self.collectionView addGestureRecognizer:cell.scrollView.pinchGestureRecognizer];
+    [self.collectionView addGestureRecognizer:cell.scrollView.panGestureRecognizer];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+  didEndDisplayingCell:(GalleryImageCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    [self.collectionView removeGestureRecognizer:cell.scrollView.pinchGestureRecognizer];
+    [self.collectionView removeGestureRecognizer:cell.scrollView.panGestureRecognizer];
 }
 
 - (void)setSelectedImage:(NSUInteger)selectedImage
