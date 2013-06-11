@@ -26,31 +26,11 @@
 }
 
 - (void)awakeFromNib{
-    self.scrollView.minimumZoomScale=0.5;
+    self.scrollView.minimumZoomScale=1;
     self.scrollView.maximumZoomScale=6.0;
 
     self.scrollView.delegate=self;
 
-}
-
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
-{
-    NSLog(@"endzoom");
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    NSLog(@"enddrag");
-}
-
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView
-{
-    NSLog(@"didzoom");
-}
-
-- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
-{
-    NSLog(@"beginzoom");
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
